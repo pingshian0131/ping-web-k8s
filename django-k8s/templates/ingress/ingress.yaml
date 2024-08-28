@@ -2,7 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-pingshian
+  namespace: ping-web-ns
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prd
 spec:
+  tls:
+    - hosts:
+      - pingshian.simple-web.tw
+      secretName: simple-web-tls
   rules:
   - host: pingshian.simple-web.tw
     http:

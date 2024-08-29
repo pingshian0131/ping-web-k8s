@@ -16,3 +16,7 @@ helm install cert-manager jetstack/cert-manager \
 --version v1.15.3 \
 --set crds.enabled=true --set prometheus.enabled=false \
 --set webhook.timeoutSeconds=4
+
+# ping-web
+helm upgrade --install django-k8s ./django-k8s \
+--namespace ping-web-ns --create-namespace
